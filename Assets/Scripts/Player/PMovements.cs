@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PMovements : MonoBehaviour
 {
@@ -6,61 +7,144 @@ public class PMovements : MonoBehaviour
     [SerializeField] private float maxSpeed = 5f;
     [SerializeField] private float acceleration = 10f;
     [SerializeField] private float deceleration = 15f;
-
-    [Header("Jump Settings")]
     [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private float airControl = 0.2f;
+    [SerializeField] private float dashForce = 20f;
 
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
 
     private bool grounded;
-    private float moveInput;
     private bool jumpQueued;
+    private bool dashQueued;
+    private bool isDashing;
+    private bool canDash;
+    private float dashTime = 0.2f;
+    private Vector2 preDashVelocity;
 
-    private void Update()
+    private Vector2 moveInput;
+
+    private InputSystem_Actions input;
+
+    private void Awake()
     {
-        // Raw input
-        if (Input.GetKey(KeyCode.D))
-            moveInput = 1;
-        else if (Input.GetKey(KeyCode.A))
-            moveInput = -1;
-        else
-            moveInput = 0;
+        input = new InputSystem_Actions();
 
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
-            jumpQueued = true;
+        input.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        input.Player.Move.canceled += ctx => moveInput = Vector2.zero;
+
+        input.Player.Jump.performed += ctx => {
+            if (grounded || isDashing) jumpQueued = true;
+        };
+
+        input.Player.Dash.performed += ctx => {
+            if (!isDashing) dashQueued = true;
+        };
+        canDash = true;
     }
+
+    private void OnEnable() => input.Enable();
+    private void OnDisable() => input.Disable();
 
     private void FixedUpdate()
     {
-        // Get current horizontal velocity
-        float targetSpeed = moveInput * maxSpeed;
+        // Dash
+        if (isDashing)
+        {
+            if (jumpQueued)
+            {
+                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                jumpQueued = false;
+            }
+            return;
+        }
+
+        float moveInputX = moveInput.x;
+        float moveInputY = moveInput.y;
+
+        float targetSpeed = moveInputX * maxSpeed;
         float speedDiff = targetSpeed - rb.linearVelocity.x;
 
-        // Choose accel or decel
-        float rate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
+        float rate = (grounded && Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
 
-        // Apply acceleration as force
-        float force = speedDiff * rate;
-        rb.AddForce(Vector2.right * force, ForceMode2D.Force);
+        if (grounded)
+        {
+            float force = speedDiff * rate;
+            rb.AddForce(Vector2.right * force, ForceMode2D.Force);
+        }
+        else
+        {
+            float airSpeed = moveInputX * maxSpeed * airControl;
+            rb.linearVelocity = new Vector2(airSpeed, rb.linearVelocity.y);
+        }
 
-        // Handle Jump
+        float clampedSpeed = Mathf.Clamp(rb.linearVelocity.x, -maxSpeed, maxSpeed);
+        rb.linearVelocity = new Vector2(clampedSpeed, rb.linearVelocity.y);
+
+        Flip(moveInputX);
+
         if (jumpQueued)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpQueued = false;
         }
+
+        if (dashQueued && !isDashing && canDash)
+        {
+            Dash();
+            dashQueued = false;
+        }
+        /*TODO: Make player able to dash once in air
+          TODO: Smoothen out player movements
+          TODO: add directional dash
+        */
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
             grounded = true;
+            canDash = true; // Reset dash ability when touching the ground
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
             grounded = false;
+    }
+
+    private void Dash()
+    {
+        if (isDashing) return;
+
+        isDashing = true;
+        canDash = false; // Disable dash ability during dash
+        preDashVelocity = rb.linearVelocity;
+
+        // Set dash direction based on player facing direction (i.e., scale.x)
+        Vector2 dashDirection = Vector2.right * Mathf.Sign(transform.localScale.x); // Always dash in the direction of the character's facing
+
+        // Apply the dash force in that direction
+        rb.linearVelocity = new Vector2(dashDirection.x * dashForce, rb.linearVelocity.y);  // Keep the vertical velocity intact
+
+        Invoke(nameof(EndDash), dashTime);
+    }
+
+    private void EndDash()
+    {
+        isDashing = false;
+
+        float targetSpeed = moveInput.x * maxSpeed;
+        rb.linearVelocity = new Vector2(targetSpeed, rb.linearVelocity.y);
+    }
+
+    private void Flip(float moveX)
+    {
+        if (moveX != 0)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = Mathf.Sign(moveX) * Mathf.Abs(scale.x);
+            transform.localScale = scale;
+        }
     }
 }
