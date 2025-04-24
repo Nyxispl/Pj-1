@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\lherm\\Documents\\Unity_project\\Pj-1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5DDCD1E4-5BDF-F547-2EB5-79F8684B8836}|Assembly-CSharp.csproj|c:\\users\\lherm\\documents\\unity_project\\pj-1\\assets\\scripts\\player\\pmovements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5DDCD1E4-5BDF-F547-2EB5-79F8684B8836}|Assembly-CSharp.csproj|c:\\users\\lherm\\documents\\unity_project\\pj-1\\assets\\scripts\\ui\\startgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DDCD1E4-5BDF-F547-2EB5-79F8684B8836}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\startgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DDCD1E4-5BDF-F547-2EB5-79F8684B8836}|Assembly-CSharp.csproj|C:\\Users\\lherm\\Documents\\Unity_project\\Pj-1\\assets\\scripts\\player\\pmovements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5DDCD1E4-5BDF-F547-2EB5-79F8684B8836}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\pmovements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -19,15 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "StartGame.cs",
+              "DocumentMoniker": "C:\\Users\\lherm\\Documents\\Unity_project\\Pj-1\\Assets\\Scripts\\Ui\\StartGame.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Ui\\StartGame.cs",
+              "ToolTip": "C:\\Users\\lherm\\Documents\\Unity_project\\Pj-1\\Assets\\Scripts\\Ui\\StartGame.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Ui\\StartGame.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T17:50:02.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "PMovements.cs",
               "DocumentMoniker": "C:\\Users\\lherm\\Documents\\Unity_project\\Pj-1\\Assets\\Scripts\\Player\\PMovements.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PMovements.cs",
               "ToolTip": "C:\\Users\\lherm\\Documents\\Unity_project\\Pj-1\\Assets\\Scripts\\Player\\PMovements.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\PMovements.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwEIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T22:20:42.192Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T22:20:42.192Z"
             }
           ]
         }
