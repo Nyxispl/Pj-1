@@ -60,7 +60,6 @@ public class PMovements : MonoBehaviour
         }
 
         float moveInputX = moveInput.x;
-        float moveInputY = moveInput.y;
 
         float targetSpeed = moveInputX * maxSpeed;
         float speedDiff = targetSpeed - rb.linearVelocity.x;
@@ -71,6 +70,7 @@ public class PMovements : MonoBehaviour
         {
             float force = speedDiff * rate;
             rb.AddForce(Vector2.right * force, ForceMode2D.Force);
+            canDash = true;
         }
         else
         {
@@ -94,17 +94,12 @@ public class PMovements : MonoBehaviour
             Dash();
             dashQueued = false;
         }
-        /*TODO: Make player able to dash once in air
-          TODO: Smoothen out player movements
-          TODO: add directional dash
-        */
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
             grounded = true;
-            canDash = true; // Reset dash ability when touching the ground
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -118,14 +113,19 @@ public class PMovements : MonoBehaviour
         if (isDashing) return;
 
         isDashing = true;
-        canDash = false; // Disable dash ability during dash
+        canDash = false;
         preDashVelocity = rb.linearVelocity;
 
-        // Set dash direction based on player facing direction (i.e., scale.x)
-        Vector2 dashDirection = Vector2.right * Mathf.Sign(transform.localScale.x); // Always dash in the direction of the character's facing
+        Vector2 dashDirection = moveInput.normalized;
 
-        // Apply the dash force in that direction
-        rb.linearVelocity = new Vector2(dashDirection.x * dashForce, rb.linearVelocity.y);  // Keep the vertical velocity intact
+        if (dashDirection == Vector2.zero)
+        {
+            dashDirection = new Vector2(Mathf.Sign(transform.localScale.x), 0);
+        }
+
+        dashDirection *= dashForce;
+
+        rb.AddForce(dashDirection, ForceMode2D.Impulse);
 
         Invoke(nameof(EndDash), dashTime);
     }
@@ -135,7 +135,7 @@ public class PMovements : MonoBehaviour
         isDashing = false;
 
         float targetSpeed = moveInput.x * maxSpeed;
-        rb.linearVelocity = new Vector2(targetSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(targetSpeed, preDashVelocity.y);
     }
 
     private void Flip(float moveX)
