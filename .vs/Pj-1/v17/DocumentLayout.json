@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\lherm\\Documents\\Unity_project\\Pj-1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5DDCD1E4-5BDF-F547-2EB5-79F8684B8836}|Assembly-CSharp.csproj|c:\\users\\lherm\\documents\\unity_project\\pj-1\\assets\\scripts\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5DDCD1E4-5BDF-F547-2EB5-79F8684B8836}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5DDCD1E4-5BDF-F547-2EB5-79F8684B8836}|Assembly-CSharp.csproj|c:\\users\\lherm\\documents\\unity_project\\pj-1\\assets\\scripts\\player\\animatorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5DDCD1E4-5BDF-F547-2EB5-79F8684B8836}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\animatorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\lherm\\Documents\\Unity_project\\Pj-1\\Assets\\SunnyLand Artwork\\Sprites\\player\\AnimatorController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\SunnyLand Artwork\\Sprites\\player\\AnimatorController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5DDCD1E4-5BDF-F547-2EB5-79F8684B8836}|Assembly-CSharp.csproj|c:\\users\\lherm\\documents\\unity_project\\pj-1\\assets\\scripts\\player\\pmovements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DDCD1E4-5BDF-F547-2EB5-79F8684B8836}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\pmovements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +14,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Camera.cs",
-              "DocumentMoniker": "C:\\Users\\lherm\\Documents\\Unity_project\\Pj-1\\Assets\\Scripts\\Camera.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Camera.cs",
-              "ToolTip": "C:\\Users\\lherm\\Documents\\Unity_project\\Pj-1\\Assets\\Scripts\\Camera.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Camera.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAPAAAAAAAAAA==",
+              "Title": "PMovements.cs",
+              "DocumentMoniker": "C:\\Users\\lherm\\Documents\\Unity_project\\Pj-1\\Assets\\Scripts\\Player\\PMovements.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PMovements.cs",
+              "ToolTip": "C:\\Users\\lherm\\Documents\\Unity_project\\Pj-1\\Assets\\Scripts\\Player\\PMovements.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\PMovements.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAQwHQAAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T00:50:59.614Z",
+              "WhenOpened": "2025-04-28T20:04:52.854Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AnimatorController.cs",
-              "DocumentMoniker": "C:\\Users\\lherm\\Documents\\Unity_project\\Pj-1\\Assets\\Scripts\\Player\\AnimatorController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\AnimatorController.cs",
-              "ToolTip": "C:\\Users\\lherm\\Documents\\Unity_project\\Pj-1\\Assets\\Scripts\\Player\\AnimatorController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\AnimatorController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T17:34:15.295Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AnimatorController.cs",
-              "DocumentMoniker": "C:\\Users\\lherm\\Documents\\Unity_project\\Pj-1\\Assets\\SunnyLand Artwork\\Sprites\\player\\AnimatorController.cs",
-              "RelativeDocumentMoniker": "Assets\\SunnyLand Artwork\\Sprites\\player\\AnimatorController.cs",
-              "ToolTip": "C:\\Users\\lherm\\Documents\\Unity_project\\Pj-1\\Assets\\SunnyLand Artwork\\Sprites\\player\\AnimatorController.cs",
-              "RelativeToolTip": "Assets\\SunnyLand Artwork\\Sprites\\player\\AnimatorController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T17:26:46.045Z"
             }
           ]
         }
