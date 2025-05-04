@@ -14,12 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -28,7 +24,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PMovements.cs",
               "ToolTip": "C:\\Users\\lherm\\Documents\\Unity_project\\Pj-1\\Assets\\Scripts\\Player\\PMovements.cs*",
               "RelativeToolTip": "Assets\\Scripts\\Player\\PMovements.cs*",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAQwHQAAABZAAAAAAAAAA==",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAIwJEAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-28T20:04:52.854Z",
               "EditorCaption": ""

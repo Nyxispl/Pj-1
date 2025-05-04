@@ -12,6 +12,7 @@ def run_command(command):
 commit_message = input("📝 Enter commit message: ")
 
 # Run Git commands
+run_command("cd Documents/Unity_Proeject/Pj-1")
 print("📂 Staging changes...")
 run_command("git add .")
 
